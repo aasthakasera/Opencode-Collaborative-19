@@ -81,6 +81,9 @@ catch(err) {
 
             $('#participants').append(participantDiv);
         });
+       participants.sort(function(a,b) {
+            return a.name.toLowerCase()>b.name.toLowerCase();
+        });
     });
 
     $.getJSON(projectsJson, function (data) {
