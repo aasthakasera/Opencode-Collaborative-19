@@ -32,7 +32,12 @@ $(document).ready(function () {
     $.getJSON(participantsJson, function (data) {
         participants = data.participants;
         participants.sort(function(a,b) {
-            return a.name.toLowerCase() > b.name.toLowerCase();
+            var nameA=a.name.toLowerCase(), nameB = b.name.toLowerCase();
+            if(nameA<nameB)
+                return -1;
+            if(nameA>nameB)
+                return 1;
+            return 0;
         });
         $.each( participants, function( i, participant ) {
 
